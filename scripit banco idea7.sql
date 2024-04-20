@@ -53,6 +53,7 @@ constraint foreign key (fkEmpresa) references empresa(idEmpresa)
 create table totem(
 idTotem int primary key auto_increment,
 codigoTotem int,
+ipTotem varchar(45),
 fkFranquia int,
 fkEmpresa int,
 constraint foreign key (fkFranquia) references franquia(idFranquia),
@@ -97,13 +98,12 @@ constraint foreign key (fkTotem) references totem(idTotem)
 
 create table dadosHardWare(
 idDados int primary key auto_increment,
-uso varchar(45),
+uso long,
 dataHora datetime,
 fkHardWare int,
 fkTotem int,
 constraint foreign key (fkHardWare) references hardware(idHardWare),
 constraint foreign key (fkTotem) references totem(idTotem)
 )auto_increment = 0;
-
 
 
