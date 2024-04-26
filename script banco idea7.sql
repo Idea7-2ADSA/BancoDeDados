@@ -1,3 +1,4 @@
+drop database ideabd;
 create database ideaBD;
 
 use ideaBD;
@@ -51,14 +52,13 @@ constraint foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
 create table totem(
-idTotem int primary key auto_increment,
-codigoTotem varchar(45),
+codigoTotem int primary key,
 macAddress varchar(45),
 fkFranquia int,
 fkEmpresa int,
 constraint foreign key (fkFranquia) references franquia(idFranquia),
 constraint foreign key (fkEmpresa) references empresa(idEmpresa)
-)auto_increment = 0;
+);
 
 create table reinicializacao(
 idRelatorio int primary key auto_increment,
@@ -66,7 +66,7 @@ estado varchar(45),
 dataHoraInicio datetime,
 dataHoraFim datetime,
 fkTotem int,
-constraint foreign key (fkTotem) references totem(idTotem)
+constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
 
 create table relatorio(
@@ -83,7 +83,7 @@ create table hardware(
 idHardWare int primary key auto_increment,
 tipo varchar(45),
 fkTotem int,
-constraint foreign key (fkTotem) references totem(idTotem)
+constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
 
 create table caracteristicaHardware(
@@ -93,15 +93,27 @@ dado varchar(45),
 fkHardWare int,
 fkTotem int,
 constraint foreign key (fkHardWare) references hardware(idHardWare),
-constraint foreign key (fkTotem) references totem(idTotem)
+constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
 
 create table dadosHardWare(
 idDados int primary key auto_increment,
 uso long,
-dataHora datetime,
+dataHora varchar(45),
+nomeComponente varchar(45),
 fkHardWare int,
 fkTotem int,
 constraint foreign key (fkHardWare) references hardware(idHardWare),
-constraint foreign key (fkTotem) references totem(idTotem)
+constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
+
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
+GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
+FLUSH PRIVILEGES;
+
+insert into totem(codigoTotem) values ("123123");
+
+
+select * from totem;
+select * from hardware;
+select * from dadosHardWare;
