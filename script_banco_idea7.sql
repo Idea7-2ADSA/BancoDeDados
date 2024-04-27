@@ -1,6 +1,6 @@
-create database ideaBD;
+create database ideabd;
 
-use ideaBD;
+use ideabd;
 
 create table empresa(
 idEmpresa int primary key auto_increment,
