@@ -1,4 +1,3 @@
-drop database ideabd;
 create database ideaBD;
 
 use ideaBD;
@@ -112,8 +111,3 @@ GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
 
 insert into totem(codigoTotem) values ("123123");
-
-
-select * from totem;
-select * from hardware;
-select * from dadosHardWare;
