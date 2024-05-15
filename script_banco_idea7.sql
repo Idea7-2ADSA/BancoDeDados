@@ -42,6 +42,7 @@ create table chamado(
 idChamado int primary key auto_increment,
 dataHoraAbertura datetime,
 dataHoraFechamento datetime,
+statusChamado varchar(45),
 fkTecnico int,
 fkFranquia int,
 fkEmpresa int,
@@ -59,9 +60,20 @@ constraint foreign key (fkFranquia) references franquia(idFranquia),
 constraint foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
-create table reinicializacao(
+create table ajuste(
+idAjuste int primary key auto_increment,
+dataParamentro date,
+qtdTotemParametro int,
+horaReinicializacao time,
+fkGerente int,
+fkTotem int,
+constraint foreign key (fkGerente) references gerente(idGerente),
+constraint foreign key (fkTotem) references totem(idTotem)ode
+);
+
+create table relatorioReinicializacao(
 idRelatorio int primary key auto_increment,
-estado varchar(45),
+statusReinicializacao varchar(45),
 dataHoraInicio datetime,
 dataHoraFim datetime,
 fkTotem int,
@@ -97,7 +109,7 @@ constraint foreign key (fkTotem) references totem(codigoTotem)
 
 create table dadosHardWare(
 idDados int primary key auto_increment,
-uso long,
+procentagemUso long,
 dataHora varchar(45),
 nomeComponente varchar(45),
 fkHardWare int,
@@ -110,4 +122,14 @@ CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
 
+insert into empresa values(null, 'McDonals', '42.591.651/0001-43');
+
+insert into franquia values(null, 'Mc1000', '01310-200.', 'Bela Vista', '1811', '', 1);
+
 insert into totem(codigoTotem) values ("123123");
+
+insert into tecnico(email, senha) values ("daniel@gmail.com", "123123");
+
+select * from dadosHardWare;
+select * from gerente;
+select * from franquia;
