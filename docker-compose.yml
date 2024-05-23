@@ -1,0 +1,11 @@
+services:
+  mysql:
+    build: .
+    container_name: atividadeSO
+    image: daniel/ideabd:V1
+    restart: always
+    ports:
+      - "3307:3306"
+volumes:
+  mysql_data:
+ 

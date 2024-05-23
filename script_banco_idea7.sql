@@ -23,6 +23,7 @@ create table gerente(
 idGerente int primary key auto_increment,
 nome varchar(45),
 cpf varchar(45),
+telefone char(15),
 email varchar(45),
 senha varchar(45),
 fkFranquia int,
@@ -53,7 +54,7 @@ constraint foreign key (fkEmpresa) references empresa(idEmpresa)
 
 create table totem(
 codigoTotem int primary key,
-macAddress varchar(45),
+hostName varchar(45),
 fkFranquia int,
 fkEmpresa int,
 constraint foreign key (fkFranquia) references franquia(idFranquia),
@@ -68,7 +69,7 @@ horaReinicializacao time,
 fkGerente int,
 fkTotem int,
 constraint foreign key (fkGerente) references gerente(idGerente),
-constraint foreign key (fkTotem) references totem(idTotem)ode
+constraint foreign key (fkTotem) references totem(codigoTotem)
 );
 
 create table relatorioReinicializacao(
@@ -109,7 +110,7 @@ constraint foreign key (fkTotem) references totem(codigoTotem)
 
 create table dadosHardWare(
 idDados int primary key auto_increment,
-procentagemUso long,
+porcentagemUso long,
 dataHora varchar(45),
 nomeComponente varchar(45),
 fkHardWare int,
@@ -118,18 +119,26 @@ constraint foreign key (fkHardWare) references hardware(idHardWare),
 constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
 
-CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
+create table alerta(
+idAlerta int primary key auto_increment,
+qtdAlertaVermelho int,
+qtdAlertaAmarelo int,
+qtdAlertaVerde int,
+fkDadosHardWare int,
+fkTotem int,
+constraint foreign key (fkDadosHardWare) references dadosHardWare(idDados),
+constraint foreign key (fkTotem) references totem(codigoTotem)
+);
+
+select * from empresa;
+select * from franquia;
+select * from gerente;
+select * from tecnico;
+select * from totem;
+select * from hardware;
+select * from caracteristicaHardware;
+select * from dadosHardWare;
+
+-- CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
-
-insert into empresa values(null, 'McDonals', '42.591.651/0001-43');
-
-insert into franquia values(null, 'Mc1000', '01310-200.', 'Bela Vista', '1811', '', 1);
-
-insert into totem(codigoTotem) values ("123123");
-
-insert into tecnico(email, senha) values ("daniel@gmail.com", "123123");
-
-select * from dadosHardWare;
-select * from gerente;
-select * from franquia;
