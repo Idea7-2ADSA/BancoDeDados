@@ -63,13 +63,12 @@ constraint foreign key (fkEmpresa) references empresa(idEmpresa)
 
 create table ajuste(
 idAjuste int primary key auto_increment,
-dataParamentro date,
-qtdTotemParametro int,
+diaReinicializacao varchar(45),
 horaReinicializacao time,
 fkGerente int,
-fkTotem int,
+fkFranquia int,
 constraint foreign key (fkGerente) references gerente(idGerente),
-constraint foreign key (fkTotem) references totem(codigoTotem)
+constraint foreign key (fkFranquia) references franquia(idFranquia)
 );
 
 create table relatorioReinicializacao(
@@ -121,9 +120,8 @@ constraint foreign key (fkTotem) references totem(codigoTotem)
 
 create table alerta(
 idAlerta int primary key auto_increment,
-qtdAlertaVermelho int,
-qtdAlertaAmarelo int,
-qtdAlertaVerde int,
+tipoAlerta varchar(45),
+dataAlerta date,
 fkDadosHardWare int,
 fkTotem int,
 constraint foreign key (fkDadosHardWare) references dadosHardWare(idDados),
@@ -134,6 +132,7 @@ select * from empresa;
 select * from franquia;
 select * from gerente;
 select * from tecnico;
+select * from ajuste;
 select * from totem;
 select * from hardware;
 select * from caracteristicaHardware;

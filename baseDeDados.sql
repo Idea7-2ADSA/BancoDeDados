@@ -31,6 +31,15 @@ insert into tecnico values
 (null, 'Diego Almeida Nunes', 'diego.nunes@example.com', 'DiegoA1123^'),
 (null, 'Elisa Moreira Campos', 'elisa.campos@example.com', 'ElisaM3456@');
 
+insert into ajuste values
+(null, '1', null, null, 1),
+(null, '1', null, null, 2),
+(null, '1', null, null, 3),
+(null, '1', null, null, 4),
+(null, '1', null, null, 5),
+(null, '1', null, null, 6),
+(null, '1', null, null, 7);
+
 insert into totem values
 (184329, null, 1, 1),
 (597481, null, 1, 1),
