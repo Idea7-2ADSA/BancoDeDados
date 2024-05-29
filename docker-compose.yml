@@ -2,7 +2,7 @@ services:
   mysql:
     build: .
     container_name: atividadeSO
-    image: daniel/ideabd:V1
+    image: daniel/ideabd:V.1
     restart: always
     ports:
       - "3307:3306"

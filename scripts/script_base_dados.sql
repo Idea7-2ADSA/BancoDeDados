@@ -1,3 +1,5 @@
+use ideabd;
+
 insert into empresa values(null, 'McDonals', '42.591.651/0001-43');
 
 insert into franquia values(null, 'Mc1000', '01310-200.', 'Bela Vista', '1811', '', 1),
