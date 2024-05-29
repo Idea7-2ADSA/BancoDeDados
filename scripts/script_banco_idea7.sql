@@ -121,10 +121,10 @@ constraint foreign key (fkTotem) references totem(codigoTotem)
 create table alerta(
 idAlerta int primary key auto_increment,
 tipoAlerta varchar(45),
+hardWareCorrespondente varchar(45),
+diaDaSemana int,
 dataAlerta date,
-fkDadosHardWare int,
 fkTotem int,
-constraint foreign key (fkDadosHardWare) references dadosHardWare(idDados),
 constraint foreign key (fkTotem) references totem(codigoTotem)
 );
 
@@ -136,8 +136,8 @@ select * from ajuste;
 select * from totem;
 select * from hardware;
 select * from caracteristicaHardware;
-select * from dadosHardWare;
+select * from dadosHardWare; 
 
-CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
+-- CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
