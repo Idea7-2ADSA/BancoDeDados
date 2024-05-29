@@ -136,8 +136,9 @@ select * from ajuste;
 select * from totem;
 select * from hardware;
 select * from caracteristicaHardware;
-select * from dadosHardWare; 
+select * from dadosHardWare;
+select * from alerta; 
 
--- CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
