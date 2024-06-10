@@ -148,6 +148,36 @@ insert into tecnico values
 (null, 'Gustavo Antunes', 'gustavo.antunes@gmail.com', 'gustavo123'),
 (null, 'Julia Hikari', 'julia.hikari@gmail.com', 'julia123');
 
+insert into totem values
+(184329, null, 1, 1),
+(597481, null, 1, 1),
+(902173, null, 1, 1),
+(375290, null, 1, 1),
+(816453, null, 2, 1),
+(470561, null, 2, 1),
+(239846, null, 2, 1),
+(682391, null, 2, 1),
+(537104, null, 3, 1),
+(128374, null, 3, 1),
+(916527, null, 3, 1),
+(304685, null, 3, 1),
+(751239, null, 4, 1),
+(847593, null, 4, 1),
+(621908, null, 4, 1),
+(439275, null, 4, 1),
+(582613, null, 5, 1),
+(760294, null, 5, 1),
+(194736, null, 5, 1),
+(835142, null, 5, 1),
+(267483, null, 6, 1),
+(948210, null, 6, 1),
+(573821, null, 6, 1),
+(310694, null, 6, 1),
+(624159, null, 7, 1),
+(789302, null, 7, 1),
+(452170, null, 7, 1),
+(901635, null, 7, 1);
+
 insert into ajuste values
 (null, '1', "00:00:00", null, 1),
 (null, '1', "00:00:00", null, 2),
