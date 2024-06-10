@@ -128,6 +128,35 @@ fkTotem int,
 constraint foreign key (fkTotem) references totem(codigoTotem)
 );
 
+insert into empresa values(null, 'McDonals', '42.591.651/0001-43');
+
+insert into franquia values
+(null, 'Mc1000', '01310-200', 'Bela Vista', '1811', '', 1),
+(null, "McDonald's", '01310-100', 'Bela Vista', '810', '', 1),
+(null, "McDonald's", '01310-928', 'Bela Vista', '2064', '', 1),
+(null, "McDonald's", '06460-030', 'Tamboré', '669', '', 1),
+(null, "McDonald's", '06090-023', 'Centro', '3330', '', 1),
+(null, "McDonald's", '01502-001', 'Liberdade', '774', '', 1),
+(null, "McDonald's", '03011-000', 'Brás', '440/442', '', 1);
+
+insert into gerente values
+(null, 'Maria Brasil', '123.456.789-01', '(11) 98765-4321', 'maria.brasil@gmail.com', 'maria123', 1, 1),
+(null, 'Vitor Tigre', '987.654.321-02', '(21) 91234-5678', 'vitor.tigre@gmail.com', 'vitor123', 1, 1),
+(null, 'Daniel Ricardo', '111.222.333-03', '(31) 99876-5432', 'daniel.ricardo@gmail.com', 'daniel123', 2, 1);
+
+insert into tecnico values
+(null, 'Gustavo Antunes', 'gustavo.antunes@gmail.com', 'gustavo123'),
+(null, 'Julia Hikari', 'julia.hikari@gmail.com', 'julia123');
+
+insert into ajuste values
+(null, '1', "00:00:00", null, 1),
+(null, '1', "00:00:00", null, 2),
+(null, '1', "00:00:00", null, 3),
+(null, '1', "00:00:00", null, 4),
+(null, '1', "00:00:00", null, 5),
+(null, '1', "00:00:00", null, 6),
+(null, '1', "00:00:00", null, 7);
+
 select * from empresa;
 select * from franquia;
 select * from gerente;

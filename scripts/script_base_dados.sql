@@ -1,15 +1,5 @@
 use ideabd;
 
-insert into empresa values(null, 'McDonals', '42.591.651/0001-43');
-
-insert into franquia values(null, 'Mc1000', '01310-200', 'Bela Vista', '1811', '', 1),
-(null, "McDonald's", '01310-100', 'Bela Vista', '810', '', 1),
-(null, "McDonald's", '01310-928', 'Bela Vista', '2064', '', 1),
-(null, "McDonald's", '06460-030', 'Tamboré', '669', '', 1),
-(null, "McDonald's", '06090-023', 'Centro', '3330', '', 1),
-(null, "McDonald's", '01502-001', 'Liberdade', '774', '', 1),
-(null, "McDonald's", '03011-000', 'Brás', '440/442', '', 1);
-
 insert into gerente values
 (null, 'Ana Clara Silva', '123.456.789-01', '(11) 98765-4321', 'ana.silva@example.com', 'AnaC1234!', 1, 1),
 (null, 'João Pedro Oliveira', '987.654.321-02', '(21) 91234-5678', 'joao.oliveira@example.com', 'JoaoP5678@', 1, 1),
@@ -32,15 +22,6 @@ insert into tecnico values
 (null, 'Camila Rodrigues Silva', 'camila.silva@example.com', 'CamilaR9101%'),
 (null, 'Diego Almeida Nunes', 'diego.nunes@example.com', 'DiegoA1123^'),
 (null, 'Elisa Moreira Campos', 'elisa.campos@example.com', 'ElisaM3456@');
-
-insert into ajuste values
-(null, '1', null, null, 1),
-(null, '1', null, null, 2),
-(null, '1', null, null, 3),
-(null, '1', null, null, 4),
-(null, '1', null, null, 5),
-(null, '1', null, null, 6),
-(null, '1', null, null, 7);
 
 insert into totem values
 (184329, null, 1, 1),
@@ -711,3 +692,13 @@ insert into alerta values
 (null, 'AMARELO', 'MEMORIA', 3, null, 816453),
 (null, 'AMARELO', 'MEMORIA', 5, null, 816453),
 (null, 'AMARELO', 'MEMORIA', 4, null, 816453);
+
+select t.fkFranquia, t.codigoTotem, a.idAlerta, a.tipoAlerta from totem as t join alerta as a on t.codigoTotem = a.fkTotem where codigoTotem = 239846 order by a.idAlerta desc limit 1;
+
+select f.logradouro, f.numero, g.codigoTotem from franquia as f join totem as g on f.idFranquia = g.fkFranquia;
+
+SELECT MAX(porcentagemUso) AS MaxUsoCPU FROM dadosHardWare WHERE nomeComponente = 'CPU' AND fkTotem = 184329 AND DATE(dataHora) = CURDATE();
+
+SELECT porcentagemUso, dataHora FROM dadosHardWare WHERE fkHardWare = 1 and fkTotem = 184329 and DATE(dataHora) = curdate() order by dataHora desc limit 10;
+
+
