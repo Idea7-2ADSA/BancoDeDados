@@ -17,7 +17,7 @@ services:
       - app-network
 
   db:
-    image: danielrrsilva/idea-data-base:V2
+    image: danielrrsilva/idea-data-base:V3
     container_name: db_container
     environment:
       MYSQL_ROOT_PASSWORD: urubu100
