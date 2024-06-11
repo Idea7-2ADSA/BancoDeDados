@@ -1,26 +1,29 @@
 version: '3.8'
 
 services:
-  db:
-    image: danielrrsilva/idea-data-base:V2
-    container_name: container_db
-    environment:
-      MYSQL_ROOT_PASSWORD: urubu100
-      MYSQL_DATABASE: ideabd
-    restart: always
-    ports:
-      - "3307:3306"
-    networks:
-      - app-network
-
   app:
-    image: danielrrsilva/idea-java-app:V4
-    container_name: container_app
+    image: danielrrsilva/idea-java-app 
+    container_name: app_container
     depends_on:
       - db
     environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ideadb
+      DB_USER: root
+      DB_PASSWORD: urubu100
       CODIGOTOTEM: ${CODIGOTOTEM}
-    restart: always
+    networks:
+      - app-network
+
+  db:
+    image: danielrrsilva/idea-data-base:V2
+    container_name: db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: urubu100
+      MYSQL_DATABASE: ideadb
+    ports:
+      - "3307:3306"
     networks:
       - app-network
 
