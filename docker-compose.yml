@@ -10,6 +10,9 @@ services:
     restart: always
     ports:
       - "3307:3306"
+    networks:
+      - app-network
+
   app:
     image: danielrrsilva/idea-java-app:V4
     container_name: container_app
@@ -17,5 +20,10 @@ services:
       - db
     environment:
       CODIGOTOTEM: ${CODIGOTOTEM}
-      
- 
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
