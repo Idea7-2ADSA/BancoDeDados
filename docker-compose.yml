@@ -1,10 +1,21 @@
+version: '3.8'
+
 services:
-  mysql:
-    container_name: atividadeSO
-    image: danielrrsilva/idea-data-base:V1
+  db:
+    image: danielrrsilva/idea-data-base:V2
+    container_name: container_db
+    environment:
+      MYSQL_ROOT_PASSWORD: urubu100
+      MYSQL_DATABASE: ideabd
     restart: always
     ports:
       - "3307:3306"
-volumes:
-  mysql_data:
+  app:
+    image: danielrrsilva/idea-java-app:V2
+    container_name: container_app
+    depends_on:
+      - db
+    environment:
+      CODIGOTOTEM: ${CODIGOTOTEM}
+      
  
