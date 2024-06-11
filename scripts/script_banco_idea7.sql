@@ -1,4 +1,4 @@
-create database ideabd;
+CREATE DATABASE IF NOT EXISTS ideabd;
 
 use ideabd;
 
